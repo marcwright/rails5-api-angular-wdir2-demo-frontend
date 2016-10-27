@@ -171,6 +171,55 @@
         				</div>
               </form>
       			</li>
+            <li>
+              <li>
+        				<h1 class="h1-responsive wow fadeInUp title">Add a New Patient</h1></li>
+        			<li>
+              <form ng-submit="rails.addPatient()">
+        				<div class="row">
+        					<div class="col-sm-1">
+        						<div class="sm-form">
+        							<input type="text" class="form-control" ng-model="rails.newPatient.name">
+        							<label>Name</label>
+        						</div>
+        					</div>
+
+        					<div class="col-sm-2">
+        						<div class="sm-form">
+        							<input type="text" class="form-control" ng-model="rails.newPatient.insurance_co">
+        							<label>Insurance Co</label>
+        						</div>
+        					</div>
+
+                  <!-- <div class="col-sm-2">
+        						<div class="sm-form">
+        							<input type="text" class="form-control" ng-model="rails.newPatient.insurance_co">
+        							<label>Insurance Co</label>
+        						</div>
+        					</div> -->
+
+
+
+
+                  <div class="col-sm-2">
+                    <div class="sm-form">
+                      <select class="form-control" ng-model="rails.newPatient.gender">
+                        <option value="">--Gender--</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                      </select>
+                      <!-- <label>Doctor</label> -->
+                    </div>
+                  </div>
+
+        					<div class="col-sm-3">
+        						<div class="sm-form">
+        							<button class="btn btn-sm btn-danger">New Patient</button>
+        						</div>
+        					</div>
+        				</div>
+              </form>
+      			</li>
 
       		</ul>
       	</div>

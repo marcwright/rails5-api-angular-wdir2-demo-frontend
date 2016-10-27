@@ -21,18 +21,7 @@
           console.log(self.patients);
       });
 
-    // this.addAppt = function(){
-    //   console.log("aadPapt");
-    //   self.newAppt =
-    //     {
-    //       location: self.newAppt.location,
-    //       reason: self.newAppt.reason,
-    //       day: self.newAppt.day
-    //     };
-    //     console.log(self.newAppt);
-    //
-    //   self.newAppt = '';
-    // }
+
 
     // $http.get("https://rails5-api-wdir2-demo-backend.herokuapp.com/api/appointments")
       $http.get(`${server}/appointments`)
@@ -60,6 +49,30 @@
           data    : newAppt
        })
       .then(function(response) {
+          self.newAppt = '';
+          self.appointments = response.data;
+          console.log(self.appointments);
+      });
+    }
+
+    this.addPatient = function(){
+      console.log("New patient");
+       var newPatient = {
+        name: self.newPatient.name,
+        insurance_co: self.newPatient.insurance_co,
+        gender: self.newPatient.gender
+      }
+      console.log(newPatient);
+
+      // $http.post("https://rails5-api-wdir2-demo-backend.herokuapp.com/api/appointments", {data: self.newAppt})
+
+      $http({
+          method  : 'POST',
+          url     : `${server}/patients`,
+          data    : newPatient
+       })
+      .then(function(response) {
+          self.newPatient = '';
           self.appointments = response.data;
           console.log(self.appointments);
       });
