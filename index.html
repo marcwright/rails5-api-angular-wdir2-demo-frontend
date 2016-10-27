@@ -5,6 +5,7 @@
     <title>Rails 5 API App</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" media="screen" title="no title">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" media="screen" title="no title">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css" media="screen" title="no title">
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css"> -->
@@ -36,7 +37,7 @@
       			<!--Collapse content-->
       			<div class="collapse navbar-toggleable-xs" id="collapseEx">
       				<!--Navbar Brand-->
-      				<a class="navbar-brand" href="http://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Take away</a>
+      				<a class="navbar-brand" href="http://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Appointments App</a>
       				<!--Links-->
       				<ul class="nav navbar-nav">
       					<li class="nav-item">
@@ -79,50 +80,79 @@
       <!--/Navigation & Intro-->
 
       <!--Mask-->
-      <div class="view hm-black-light">
+      <div class="view"></div>
+
+      <div class="hm-black-light">
       	<div class="full-bg-img flex-center">
       		<ul>
       			<li>
-      				<h1 class="h1-responsive wow fadeInUp title">Hey, wanna eat something?</h1></li>
+      				<h1 class="h1-responsive wow fadeInUp title">Make an Appointment</h1></li>
       			<li>
               <form ng-submit="rails.addAppt()">
         				<div class="row">
-        					<div class="col-md-3">
-        						<div class="md-form">
-        							<input type="text" id="form1" class="form-control" ng-model="rails.newAppt.location">
-        							<label for="form1">Location</label>
-        						</div>
-        					</div>
-                  <span>{{rails.newAppt.location}}</span>
-        					<div class="col-md-4">
-        						<div class="md-form">
-        							<input type="text" id="form2" class="form-control validate" ng-model="rails.newAppt.day">
-        							<label for="reason">Day</label>
-        						</div>
-        					</div>
-        					<div class="col-md-2">
-        						<div class="md-form">
-        							<input type="text" id="form3" class="form-control validate" ng-model="rails.newAppt.reason">
-        							<label for="reason">Reason</label>
-        						</div>
-        					</div>
-                  <div class="dropdown col-md-1">
-                    <div class="md-form">
-                      <select ng-model="rails.newAppt.doctor_id">
-                         <option ng-repeat="doctor in rails.doctors" value="{{doctor.id}}">{{doctor.name}}</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="dropdown col-md-1">
-                    <div class="md-form">
-                      <select ng-model="rails.newAppt.patient_id">
-                         <option ng-repeat="patient in rails.patients" value={{patient.id}}>{{patient.name}}</option>
-                      </select>
-                    </div>
-                  </div>
         					<div class="col-sm-1">
-        						<div class="md-form">
-        							<button class="btn btn-lg btn-danger">New Appointment</button>
+        						<div class="sm-form">
+        							<input type="text" class="form-control" ng-model="rails.newAppt.location">
+        							<label>Location</label>
+        						</div>
+        					</div>
+        					<div class="col-sm-1">
+        						<div class="sm-form">
+        							<input type="text" class="form-control" ng-model="rails.newAppt.day">
+        							<label>Day</label>
+        						</div>
+        					</div>
+        					<div class="col-sm-2">
+        						<div class="sm-form">
+        							<input type="text" class="form-control" ng-model="rails.newAppt.reason">
+        							<label>Reason</label>
+        						</div>
+        					</div>
+                  <div class="col-sm-2">
+                    <div class="sm-form">
+                      <select class="form-control" ng-model="rails.newAppt.doctor_id">
+                        <option value="">Doctors</option>
+                        <option ng-repeat="doctor in rails.doctors" value="{{doctor.id}}">{{doctor.name}}</option>
+                      </select>
+                      <!-- <label>Doctor</label> -->
+                    </div>
+                  </div>
+
+                  <!-- Dropdown Trigger -->
+                  <!-- <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="true">
+                      This is a dropdown
+                  </a> -->
+                  <!-- Dropdown Structure -->
+                  <!-- <ul id='demoDropdown' class='dropdown-content' ng-repeat="patient in rails.patients">
+                      <li><a  value={{patient.id}} href="javascript:void(0);">{{patient.name}}</a></li>
+                  </ul> -->
+
+
+
+                  <div class="dropdown col-sm-2">
+                    <div class="sm-form">
+                      <select class="form-control" ng-model="rails.newAppt.patient_id">
+                        <option value="">Patients</option>
+                        <option ng-repeat="patient in rails.patients" value={{patient.id}}>{{patient.name}}</option>
+                      </select>
+                      <!-- <label>Patients</label> -->
+                    </div>
+                  </div>
+
+                  <!-- <div class="dropdown col-sm-2">
+                    <div input-field>
+                      <select class="browser-default" ng-model="rails.newAppt.patient_id">
+                        <option selected>Select language</option>
+                          <option ng-repeat="patient in rails.patients" value={{patient.id}}>{{patient.name}}</option>
+                      </select>
+                    </div>
+                  </div> -->
+
+
+
+        					<div class="col-sm-4">
+        						<div class="sm-form">
+        							<button class="btn btn-sm btn-danger">New Appointment</button>
         						</div>
         					</div>
         				</div>

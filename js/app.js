@@ -1,3 +1,3 @@
 (function(){
-    angular.module('Rails5', []);
+    angular.module('Rails5', ['ui.materialize']);
 })()
