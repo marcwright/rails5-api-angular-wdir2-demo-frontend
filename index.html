@@ -96,61 +96,24 @@
         							<label>Location</label>
         						</div>
         					</div>
-        					<div class="col-sm-1">
+        					<!-- <div class="col-sm-1">
         						<div class="sm-form">
-        							<input type="text" class="form-control" ng-model="rails.newAppt.day">
+        							<input type="text" class="form-control">
         							<label>Day</label>
         						</div>
-        					</div>
+        					</div> -->
         					<div class="col-sm-2">
         						<div class="sm-form">
         							<input type="text" class="form-control" ng-model="rails.newAppt.reason">
         							<label>Reason</label>
         						</div>
         					</div>
-                  <div class="col-sm-2">
-                    <div class="sm-form">
-                      <select class="form-control" ng-model="rails.newAppt.doctor_id">
-                        <option value="">--Doctors--</option>
-                        <option ng-repeat="doctor in rails.doctors" value="{{doctor.id}}">{{doctor.name}}</option>
-                      </select>
-                      <!-- <label>Doctor</label> -->
-                    </div>
-                  </div>
-
-                  <!-- Dropdown Trigger -->
-                  <!-- <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="true">
-                      This is a dropdown
-                  </a> -->
-                  <!-- Dropdown Structure -->
-                  <!-- <ul id='demoDropdown' class='dropdown-content' ng-repeat="patient in rails.patients">
-                      <li><a  value={{patient.id}} href="javascript:void(0);">{{patient.name}}</a></li>
-                  </ul> -->
 
 
-
-                  <div class="dropdown col-sm-2">
-                    <div class="sm-form">
-                      <select class="form-control" ng-model="rails.newAppt.patient_id">
-                        <option value="">--Patients--</option>
-                        <option ng-repeat="patient in rails.patients" value={{patient.id}}>{{patient.name}}</option>
-                      </select>
-                      <!-- <label>Patients</label> -->
-                    </div>
-                  </div>
-
-                  <!-- <div class="dropdown col-sm-2">
-                    <div input-field>
-                      <select class="browser-default" ng-model="rails.newAppt.patient_id">
-                        <option selected>Select language</option>
-                          <option ng-repeat="patient in rails.patients" value={{patient.id}}>{{patient.name}}</option>
-                      </select>
-                    </div>
-                  </div> -->
                   <div class="col-sm-2">
                     <div class="sm-form">
 
-                      <input class="form-control" input-date
+                      <input ng-model="rails.newAppt.day" class="form-control" input-date
                         type="text"
                         name="created"
                         id="inputCreated"
@@ -180,11 +143,29 @@
                     </div>
                   </div>
 
+                  <div class="dropdown col-sm-2">
+                    <div class="sm-form">
+                      <select class="form-control" ng-model="rails.newAppt.patient_id">
+                        <option value="">--Patients--</option>
+                        <option ng-repeat="patient in rails.patients" value={{patient.id}}>{{patient.name}}</option>
+                      </select>
+                      <!-- <label>Patients</label> -->
+                    </div>
+                  </div>
 
+                  <div class="col-sm-2">
+                    <div class="sm-form">
+                      <select class="form-control" ng-model="rails.newAppt.doctor_id">
+                        <option value="">--Doctors--</option>
+                        <option ng-repeat="doctor in rails.doctors" value="{{doctor.id}}">{{doctor.name}}</option>
+                      </select>
+                      <!-- <label>Doctor</label> -->
+                    </div>
+                  </div>
 
-        					<div class="col-sm-4">
+        					<div class="col-sm-3">
         						<div class="sm-form">
-        							<button class="btn btn-sm btn-danger">New Appointment</button>
+        							<button class="btn btn-sm btn-danger">New Appt</button>
         						</div>
         					</div>
         				</div>
