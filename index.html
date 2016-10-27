@@ -111,7 +111,7 @@
                   <div class="col-sm-2">
                     <div class="sm-form">
                       <select class="form-control" ng-model="rails.newAppt.doctor_id">
-                        <option value="">Doctors</option>
+                        <option value="">--Doctors--</option>
                         <option ng-repeat="doctor in rails.doctors" value="{{doctor.id}}">{{doctor.name}}</option>
                       </select>
                       <!-- <label>Doctor</label> -->
@@ -132,7 +132,7 @@
                   <div class="dropdown col-sm-2">
                     <div class="sm-form">
                       <select class="form-control" ng-model="rails.newAppt.patient_id">
-                        <option value="">Patients</option>
+                        <option value="">--Patients--</option>
                         <option ng-repeat="patient in rails.patients" value={{patient.id}}>{{patient.name}}</option>
                       </select>
                       <!-- <label>Patients</label> -->
@@ -147,6 +147,38 @@
                       </select>
                     </div>
                   </div> -->
+                  <div class="col-sm-2">
+                    <div class="sm-form">
+
+                      <input class="form-control" input-date
+                        type="text"
+                        name="created"
+                        id="inputCreated"
+                        ng-model="currentTime"
+                        container=""
+                        format="dd/mm/yyyy"
+                        months-full="{{ month }}"
+                        months-short="{{ monthShort }}"
+                        weekdays-full="{{ weekdaysFull }}"
+                        weekdays-short="{{ weekdaysShort }}"
+                        weekdays-letter="{{ weekdaysLetter }}"
+                        disable="disable"
+                        min="{{ minDate }}"
+                        max="{{ maxDate }}"
+                        today="today"
+                        first-day="1"
+                        clear="clear"
+                        close="close"
+                        select-years="15"
+                        on-start="onStart()"
+                        on-render="onRender()"
+                        on-open="onOpen()"
+                        on-close="onClose()"
+                        on-set="onSet()"
+                        on-stop="onStop()" />
+                        <label style="color:white">Input date</label>
+                    </div>
+                  </div>
 
 
 
