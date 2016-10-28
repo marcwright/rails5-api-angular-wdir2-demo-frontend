@@ -40,6 +40,7 @@
 
     self.getPatientName = function(appt){
       // console.log(self.patients);
+      // console.log(appt);
       // console.log("line 43", appt.patient_id);
       for (var i = 0; i < self.patients.length; i++){
         if (appt.patient_id == self.patients[i].id){
@@ -76,7 +77,9 @@
         insurance_co: self.newPatient.insurance_co,
         gender: self.newPatient.gender
       }
-      console.log(newPatient);
+      console.log(self.patients);
+      self.patients.push(newPatient);
+      console.log(self.patients);
 
       $http({
           method  : 'POST',
@@ -85,7 +88,7 @@
        })
       .then(function(response) {
           self.newPatient = '';
-          self.appointments = response.data;
+          self.getPatients();
           console.log(self.appointments);
       });
     }
