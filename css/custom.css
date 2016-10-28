@@ -9,6 +9,15 @@
 			opacity: 0.1;
 		}
 
+.picker__date-display {
+	color: black;
+	background-color: #C00!important
+}
+
+.picker__weekday-display {
+	background-color: #E00!important
+}
+
 		.full-bg-img {
 			color: #fff;
 		}

@@ -5,7 +5,6 @@
 
   function rails5Controller($http){
     var self = this;
-    self.names = ["Emil", "Tobias", "Linus"];
 
     var server = "https://rails5-api-wdir2-demo-backend.herokuapp.com/api";
 

@@ -191,16 +191,6 @@
         						</div>
         					</div>
 
-                  <!-- <div class="col-sm-2">
-        						<div class="sm-form">
-        							<input type="text" class="form-control" ng-model="rails.newPatient.insurance_co">
-        							<label>Insurance Co</label>
-        						</div>
-        					</div> -->
-
-
-
-
                   <div class="col-sm-2">
                     <div class="sm-form">
                       <select class="form-control" ng-model="rails.newPatient.gender">
@@ -226,8 +216,28 @@
       </div>
       <!--/.Mask-->
 
+        <table class="table table-sm table-hover table-striped table-inverse table-bordered col-sm-9">
+          <thead class="thead-inverse">
+            <tr>
+              <th class="col-sm-2"></th>
+              <th class="col-sm-2">Date</th>
+              <th class="col-sm-2">Location</th>
+              <th class="col-sm-4">Reason</th>
+              <th class="col-sm-1">Patient ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="appointment in rails.appointments">
+              <td class="col-sm-2"></th>
+              <td class="col-sm-2">{{appointment.day}}</th>
+              <td class="col-sm-2">{{appointment.location}}</td>
+              <td class="col-sm-4">{{appointment.reason}}</td>
+              <td class="col-sm-1">{{appointment.patient_id}}</td>
+          </tbody>
+        </table>
+
       <!-- Outro -->
-      <section id="outro">
+      <!-- <section id="outro">
       	<div class="container">
       		<div class="row text-xs-center p-t-1 p-b-4">
       			<div class="col-md-12">
@@ -238,7 +248,7 @@
       			</div>
       		</div>
       	</div>
-      </section>
+      </section> -->
       <!-- /.Outro -->
   </body>
 </html>
