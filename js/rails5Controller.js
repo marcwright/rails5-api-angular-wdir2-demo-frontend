@@ -6,7 +6,7 @@
   function rails5Controller($http){
     var self = this;
 
-    var server = "https://rails5-api-wdir2-demo-backend.herokuapp.com/api";
+    var server = "https://enigmatic-garden-65625.herokuapp.com/api";
 
     self.getDoctors = function(){
       $http.get(`${server}/doctors`)
