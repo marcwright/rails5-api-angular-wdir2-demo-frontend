@@ -8,29 +8,47 @@
 
     var server = "https://rails5-api-wdir2-demo-backend.herokuapp.com/api";
 
+    self.getDoctors = function(){
       $http.get(`${server}/doctors`)
       .then(function(response) {
           self.doctors = response.data;
           console.log(self.doctors[0].name);
       });
+    }
 
+    self.getPatients = function(){
       $http.get(`${server}/patients`)
       .then(function(response) {
           self.patients = response.data;
           console.log(self.patients);
+          return self.patients;
       });
+    }
 
-
-
-    // $http.get("https://rails5-api-wdir2-demo-backend.herokuapp.com/api/appointments")
+    self.getAppts = function(){
       $http.get(`${server}/appointments`)
       .then(function(response) {
-          self.appointments = response.data;
-          console.log(self.appointments);
+        self.appointments = response.data;
+        console.log("Appointments: ", self.appointments);
+        return self.appointments;
       });
+    }
 
-    this.addAppt = function(){
-      console.log("aadPapt");
+    self.getDoctors();
+    self.getPatients();
+    self.getAppts();
+
+    self.getPatientName = function(appt){
+      // console.log(self.patients);
+      // console.log("line 43", appt.patient_id);
+      for (var i = 0; i < self.patients.length; i++){
+        if (appt.patient_id == self.patients[i].id){
+          return self.patients[i].name;
+        }
+      }
+    }
+
+    self.addAppt = function(){
        var newAppt = {
         location: self.newAppt.location,
         reason: self.newAppt.reason,
@@ -40,8 +58,6 @@
       }
       console.log(newAppt);
 
-      // $http.post("https://rails5-api-wdir2-demo-backend.herokuapp.com/api/appointments", {data: self.newAppt})
-
       $http({
           method  : 'POST',
           url     : `${server}/appointments`,
@@ -49,21 +65,18 @@
        })
       .then(function(response) {
           self.newAppt = '';
-          self.appointments = response.data;
           console.log(self.appointments);
+          self.getAppts();
       });
     }
 
-    this.addPatient = function(){
-      console.log("New patient");
-       var newPatient = {
+    self.addPatient = function(){
+      var newPatient = {
         name: self.newPatient.name,
         insurance_co: self.newPatient.insurance_co,
         gender: self.newPatient.gender
       }
       console.log(newPatient);
-
-      // $http.post("https://rails5-api-wdir2-demo-backend.herokuapp.com/api/appointments", {data: self.newAppt})
 
       $http({
           method  : 'POST',
@@ -74,6 +87,21 @@
           self.newPatient = '';
           self.appointments = response.data;
           console.log(self.appointments);
+      });
+    }
+
+    self.deleteAppt = function(appt){
+      var appointment = appt;
+      console.log(appt.id);
+      $http({
+          method  : 'DELETE',
+          url     : `${server}/appointments/${appt.id}`
+       })
+      .then(function(response) {
+        console.log("deleted");
+        self.getDoctors();
+        self.getPatients();
+        self.getAppts();
       });
     }
   }
