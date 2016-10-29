@@ -6,13 +6,26 @@
   function rails5Controller($http){
     var self = this;
 
-    var server = "https://enigmatic-garden-65625.herokuapp.com/api";
+    // var server = "https://enigmatic-garden-65625.herokuapp.com/api";
+    var server = "http://localhost:3000/api"
+
+    // Combining 3 data calls into one action from api/get_all
+    // Don't need the individual functions to get all of each
+    self.getData = function(){
+      $http.get(`${server}/get_all`)
+      .then(function(response) {
+          self.doctors = response.data.doctors;
+          self.patients = response.data.patients;
+          self.appointments = response.data.appointments;
+          // console.log(self.patients);
+      });
+    }
 
     self.getDoctors = function(){
       $http.get(`${server}/doctors`)
       .then(function(response) {
           self.doctors = response.data;
-          console.log(self.doctors[0].name);
+          // console.log(self.doctors[0].name);
       });
     }
 
@@ -20,7 +33,7 @@
       $http.get(`${server}/patients`)
       .then(function(response) {
           self.patients = response.data;
-          console.log(self.patients);
+          // console.log(self.patients);
           return self.patients;
       });
     }
@@ -34,9 +47,10 @@
       });
     }
 
-    self.getDoctors();
-    self.getPatients();
-    self.getAppts();
+    self.getData();
+    // self.getDoctors();
+    // self.getPatients();
+    // self.getAppts();
 
     self.getPatientName = function(appt){
       // console.log(self.patients);
