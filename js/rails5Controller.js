@@ -83,7 +83,7 @@
       .then(function(response) {
           self.newAppt = '';
           console.log(self.appointments);
-          self.getAppts();
+          self.getData();
       });
     }
 
