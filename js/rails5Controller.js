@@ -104,7 +104,7 @@
        })
       .then(function(response) {
           self.newPatient = '';
-          self.getPatients();
+          self.getData();
           console.log(self.appointments);
       });
     }
