@@ -118,9 +118,7 @@
        })
       .then(function(response) {
         console.log("deleted");
-        self.getDoctors();
-        self.getPatients();
-        self.getAppts();
+        self.getData();
       });
     }
   }
