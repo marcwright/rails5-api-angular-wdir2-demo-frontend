@@ -6,8 +6,9 @@
   function rails5Controller($http){
     var self = this;
 
+    var server = "https://rails5-api-wdir2-demo-backend.herokuapp.com/api"
     // var server = "https://enigmatic-garden-65625.herokuapp.com/api";
-    var server = "http://localhost:3000/api"
+    // var server = "http://localhost:3000/api"
 
     // Combining 3 data calls into one action from api/get_all
     // Don't need the individual functions to get all of each
