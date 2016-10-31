@@ -11,6 +11,7 @@
 
     // Combining 3 data calls into one action from api/get_all
     // Don't need the individual functions to get all of each
+
     self.getData = function(){
       $http.get(`${server}/get_all`)
       .then(function(response) {
@@ -21,31 +22,31 @@
       });
     }
 
-    self.getDoctors = function(){
-      $http.get(`${server}/doctors`)
-      .then(function(response) {
-          self.doctors = response.data;
-          // console.log(self.doctors[0].name);
-      });
-    }
-
-    self.getPatients = function(){
-      $http.get(`${server}/patients`)
-      .then(function(response) {
-          self.patients = response.data;
-          // console.log(self.patients);
-          return self.patients;
-      });
-    }
-
-    self.getAppts = function(){
-      $http.get(`${server}/appointments`)
-      .then(function(response) {
-        self.appointments = response.data;
-        console.log("Appointments: ", self.appointments);
-        return self.appointments;
-      });
-    }
+    // self.getDoctors = function(){
+    //   $http.get(`${server}/doctors`)
+    //   .then(function(response) {
+    //       self.doctors = response.data;
+    //       // console.log(self.doctors[0].name);
+    //   });
+    // }
+    //
+    // self.getPatients = function(){
+    //   $http.get(`${server}/patients`)
+    //   .then(function(response) {
+    //       self.patients = response.data;
+    //       // console.log(self.patients);
+    //       return self.patients;
+    //   });
+    // }
+    //
+    // self.getAppts = function(){
+    //   $http.get(`${server}/appointments`)
+    //   .then(function(response) {
+    //     self.appointments = response.data;
+    //     console.log("Appointments: ", self.appointments);
+    //     return self.appointments;
+    //   });
+    // }
 
     self.getData();
     // self.getDoctors();
