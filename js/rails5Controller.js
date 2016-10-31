@@ -31,14 +31,14 @@
     //   });
     // }
     //
-    // self.getPatients = function(){
-    //   $http.get(`${server}/patients`)
-    //   .then(function(response) {
-    //       self.patients = response.data;
-    //       // console.log(self.patients);
-    //       return self.patients;
-    //   });
-    // }
+    self.getPatients = function(){
+      $http.get(`${server}/patients`)
+      .then(function(response) {
+          self.patients = response.data;
+          // console.log(self.patients);
+          return self.patients;
+      });
+    }
     //
     // self.getAppts = function(){
     //   $http.get(`${server}/appointments`)
